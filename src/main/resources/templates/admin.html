@@ -23,7 +23,7 @@
 
         <div class="col-4 list-buttons d-flex align-self-center align-items-center justify-content-end">
             <a class="btn btn-primary mr-1" role="button" th:href="@{/admin/user/{username}(username=${user.getFirstname()})}">Смотреть</a>
-            <a class="btn btn-primary mr-1" role="button" th:href="@{/edit/{username}(username=${user.getFirstname()})}">Изменить</a>
+            <a class="btn btn-primary mr-1" role="button" th:href="@{/admin/edit/{username}(username=${user.getFirstname()})}">Изменить</a>
             <a class="btn btn-danger" th:href="@{/admin/delete/{username}(username=${user.getFirstname()})}">Удалить</a>
         </div>
     </div>

@@ -60,14 +60,14 @@ public class MainController {
 
 
     // редактирование юзера
-    @GetMapping("/edit/{username}")
+    @GetMapping("admin/edit/{username}") // сделать пусть через admin
     public String edit(Model model, @PathVariable("username") String username) {
         model.addAttribute("user", userService.findByUsername(username));
         model.addAttribute("roles", roleServce.index());
         return "/edit";
     }
 
-    @PatchMapping( "/update/{username}")
+    @PatchMapping( "admin/update/{username}")
     public String updateAdmin(@ModelAttribute("user") @Valid UserDto userDto
             ,BindingResult bindingResult
             , @PathVariable("username") String username
@@ -92,7 +92,7 @@ public class MainController {
         return "/new";
     }
 
-    @PostMapping("/new")
+    @PostMapping("admin/new")
     public String create(Model model, @ModelAttribute("user") @Valid UserDto userDto
             , BindingResult bindingResult
             , @RequestParam(name = "roles", required = false) @Valid String[] roles) throws ValidationException {
@@ -116,7 +116,7 @@ public class MainController {
         return "/delete";
     }
 
-    @DeleteMapping( "/{id}")
+    @DeleteMapping( "/admin/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         userService.deleteUser(id);
         return "redirect:/admin";

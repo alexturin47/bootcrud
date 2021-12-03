@@ -12,7 +12,7 @@
     <h3 class="text-center">Удаление пользователя</h3>
     <div class="row justify-content-center mt-3">
         <div class="col-4">
-            <form th:action="@{/{id}(id=${user.getId()})}" th:object="${user}" id="delete-form" th:method="DELETE">
+            <form th:action="@{/admin/delete/{id}(id=${user.getId()})}" th:object="${user}" id="delete-form" th:method="DELETE">
                 <div class="form-group">
                     <label for="firstname">Пользователь</label>
                     <input class="form-control" type="text" th:field="*{firstname}" id="firstname" disabled/>
