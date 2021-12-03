@@ -42,7 +42,7 @@ public class MainController {
     @GetMapping("/authorized")
     public String pageForAuthenticatedUsers(Principal principal) {
         UserDto user = userService.findByUsername(principal.getName());
-        if(user.hasAuthorities("ROLE_ADMIN")) {
+        if(user.hasAuthorities("ADMIN")) {
             return "redirect:admin";
         } else {
             return "redirect:user";

@@ -27,11 +27,11 @@ public class InitDB {
 
     @PostConstruct
     private void saveUsers() {
-        if (roleRepo.findByname("ROLE_ADMIN") == null) {
-            roleRepo.save(new Role("ROLE_ADMIN"));
+        if (roleRepo.findByname("ADMIN") == null) {
+            roleRepo.save(new Role("ADMIN"));
         }
-        if (roleRepo.findByname("ROLE_USER") == null) {
-            roleRepo.save(new Role("ROLE_USER"));
+        if (roleRepo.findByname("USER") == null) {
+            roleRepo.save(new Role("USER"));
         }
 
         Set<Role> roles;
@@ -39,8 +39,8 @@ public class InitDB {
         if ( admin == null ) {
 
             roles = new HashSet<>();
-            roles.add(roleRepo.findByname("ROLE_USER"));
-            roles.add(roleRepo.findByname("ROLE_ADMIN"));
+            roles.add(roleRepo.findByname("USER"));
+            roles.add(roleRepo.findByname("ADMIN"));
             userRepo.save(new User("admin"
                     , "adminnov"
                     , "$2a$12$AFJsSpNrJlC04sp2qGPcYepkRMy6rs1k3hNxeTxRMj0qZJ/aUK6X2"
@@ -53,7 +53,7 @@ public class InitDB {
         User user = userRepo.findByFirstname("user");
         if ( user == null ) {
             roles = new HashSet<>();
-            roles.add(roleRepo.findByname("ROLE_USER"));
+            roles.add(roleRepo.findByname("USER"));
             userRepo.save(new User("user"
                     , "userov"
                     , "$2a$12$wblAIp0iNog81E3RpCdwBuEZ6mqlSIJ/BFfUfFdf4p0y6naziXoGK"
